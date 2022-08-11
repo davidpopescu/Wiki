@@ -74,7 +74,7 @@ def create_Page(request):
             title = form.cleaned_data["title"]
             content = form.cleaned_data["content"]
             for characters in content:
-                if characters == "!#":
+                if characters == "#":
                     counter += 1
             if counter == 0:
                 messages.error(request, "You need to add # for title")
