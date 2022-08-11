@@ -3,3 +3,13 @@
 {% block title %}
     Search Results
 {% endblock %}
+
+{% block body %}
+    <h1>Sugested articles that are already on the site</h1>
+    <ul>
+            <li>
+                <a href = "../wiki/{{similar_Entry}}" >
+                    {{similar_Entry}}
+                </a>
+            </li>
+{% endblock %}

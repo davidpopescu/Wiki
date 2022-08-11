@@ -1,3 +1,6 @@
+html {
+    overflow-y: scroll;
+}
 body {
     margin: 0;
     background-color: white;
@@ -12,10 +15,17 @@ h1 {
     padding-top: 20px;
 }
 
-textarea {
-    height: 90vh;
-    width: 80%;
+#id_title {
+    width: 60%;
 }
+#id_content {
+    width: 80%;
+    height: 500%;
+    background-color: white;
+    resize: none;
+    display: flex;
+}
+
 
 .main {
     padding: 10px;
@@ -35,4 +45,12 @@ textarea {
 
 .sidebar h2 {
     margin-top: 5px;
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
 }
