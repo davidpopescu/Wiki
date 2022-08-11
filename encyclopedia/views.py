@@ -14,7 +14,7 @@ from markdown2 import Markdown
 import encyclopedia
 
 class NewPageForm(forms.Form):
-    title = forms.CharField( label = "Title", min_length = 4)
+    title = forms.CharField( label = "Title", min_length = 3, max_length = 20)
     content = forms.CharField(widget = forms.Textarea(attrs={"placeholder" : "Enter the content that you want to introduce on the page\n Add # for title"}), label = "Content")
     def save(self):
         title = self.cleaned_data.get("title")
