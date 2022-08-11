@@ -20,7 +20,6 @@ class NewPageForm(forms.Form):
         title = self.cleaned_data.get("title")
         content = self.cleaned_data.get("content")
         util.save_entry(title, content)
-        return HttpResponseRedirect(f"/wiki/{title}.html")
 
 class editForm(forms.Form):
     content = forms.CharField(widget = forms.Textarea, label = "Content")
@@ -28,7 +27,6 @@ class editForm(forms.Form):
         title = self.cleaned_data.get("title")
         content = self.cleaned_data.get("content")
         util.save_entry(title, content)
-        return HttpResponseRedirect(f"/wiki/{title}.html")
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
@@ -89,7 +87,7 @@ def create_Page(request):
                 
             else:
                 form.save()
-                return HttpResponseRedirect("../")
+                return HttpResponseRedirect(f"/wiki/{title}")
         else:
             messages.error(request,"Invalid Form")
             return render(request, "encyclopedia/create.html", {
