@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block body %}
+{% include 'encyclopedia/messages.html' %}
+    <h1>Edit the page {{title}}</h1>
+    <div>
+        <form action="{% url 'edit_Page' title %}" method="post">
+            {% csrf_token %}
+            {{ form.as_ul }}
+            <input type="submit" value="Edit">
+        </form>
+    </div>
+{% block editor %}
+{% endblock %}
+{% endblock %}
