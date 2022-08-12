@@ -64,7 +64,7 @@ def search(request, entry_Title = None):
 
 def create_Page(request):
     counter = 0
-    entries = util.list_entries()
+    entries = [ entries.lower() for entries in util.list_entries()]
     if request.method == "POST":
         form = NewPageForm(request.POST)
         if form.is_valid():
@@ -78,7 +78,7 @@ def create_Page(request):
                 return render(request, "encyclopedia/create.html", {
                     "form": NewPageForm()
                 })
-            if title in entries:
+            if title.lower() in entries:
                 messages.error(request, f"{title} already exists. Please create a new page.")
                 return render(request, "encyclopedia/create.html", {
                     "form": NewPageForm()
