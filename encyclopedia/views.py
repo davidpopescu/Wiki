@@ -49,7 +49,6 @@ def search(request, entry_Title = None):
     querry = request.GET.get("q")
     counter = 0
     entries = [ entries.lower() for entries in util.list_entries()]
-    print(entries)
     if querry.lower() in entries:
         return HttpResponseRedirect(f"/wiki/{querry}")
     else:
@@ -99,8 +98,8 @@ def create_Page(request):
 
 
 def edit_Page(request,entry):
-    entries = util.list_entries()
-    if entry not in entries:
+    entries = [ entries.lower() for entries in util.list_entries()]
+    if entry.lower() not in entries:
         return render(request, "encyclopedia/error404.html")
     if request.method == "GET":
         content = util.get_entry(entry)
